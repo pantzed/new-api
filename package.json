@@ -1,0 +1,12 @@
+{
+  "name": "egauge-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Ed Pantzar",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "md5": "^2.2.1",
+    "md5-hex": "^3.0.1"
+  }
+}
