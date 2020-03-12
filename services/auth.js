@@ -5,6 +5,7 @@
 const axios = require('axios');
 const md5 = require('md5');
 const md5Hex = require('md5-hex');
+const crypto = require('crypto');
 
 const auth = {
 
@@ -31,12 +32,13 @@ const auth = {
         return error.response.data;
       });
 
+
       // Random cryptographic number
       let cnnc = md5Hex(`3G@ug3R0X!!!`);
       // HA1 = MD5(USERNAME:REALM:PASSWORD)
-      let ha1 = md5(`${usr}${rlm}${pwd}`);
+      let ha1 = md5(`${usr}:${rlm}:${pwd}`);
       // HA2 = MD5(HA1:NONCE:CNONCE)
-      let ha2 = md5(`${ha1}${nnc}${cnnc}`);
+      let ha2 = md5(`${ha1}:${nnc}:${cnnc}`);
       
 
     let bodyData = {
@@ -47,14 +49,10 @@ const auth = {
       "hash": ha2
     }
 
-    let stringyBodyData = JSON.stringify(bodyData);
-
-    console.log(JSON.stringify(bodyData));
-
-    let jwt = await axios.post(`${egaugeURL}ng/api/auth/login`, bodyData)
+    let jwt = await axios.post(`${egaugeURL}api/auth/login`, bodyData)
       .then((res) => {
-        // console.log(res);
-        return res.jwt;
+        console.log(res.data.jwt);
+        return res.data.jwt;
       }).catch(error => { console.log (error.message) })
     return jwt;
   }
