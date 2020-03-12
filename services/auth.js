@@ -60,6 +60,12 @@ const auth = {
   }
 }
 
+/**
+ * Browser console network output for /login call
+ * 
+ * {"rlm":"eGauge Administration","usr":"ed","nnc":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJubmMiOiJhNzIxMjhjMDBmNzNlMDFhIiwiYmVnIjoxNTg0MDQ4MjA0LCJsdG0iOjYwfQ.Kg19zVkTeQY6zo4NHJeiRBalZMdWeVbxo2VkKqjAe-8","cnnc":"e1367ba34886f6dca3d7fcd970b150d4","hash":"edb96aea04e015b21eaf68dd0431c324"}
+ */
+
 module.exports = {
   secureAuth: auth.secureAuth,
   digestAuth: auth.digestAuth
