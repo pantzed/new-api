@@ -32,6 +32,16 @@
 
 //  let simpleDataCall = customPath(url)
 
- module.exports = {
-   secureAuth: secureAuth,
+const egaugeAPI = {
+  secureAuth: secureAuth,
+  digestAuth: digestAuth,
+  customPath: customPath
+}
+
+module.exports = egaugeAPI;
+
+exports = {
+  secureAuth: secureAuth,
+  digestAuth: digestAuth,
+  customPath: customPath
  }
